@@ -8,6 +8,7 @@ function onDeviceReady() {
     
     //setup listner for search button
     $(document).on("click", "#searchButton", search);
+
     
     
 	//need to initialise OAuth here
@@ -17,7 +18,7 @@ function onDeviceReady() {
 	OAuth.popup('twitter').done(function(result) {
         
         //authorisation successful 
-        console.log(result);
+        console.log(OAuth.getVersion());
         auth_result = result;
     
     }).fail(function (err) {
@@ -33,7 +34,8 @@ function search() {
 	
 	   
     //need to get the search terms from the text box in HTML
-    var search_terms = "...";
+    var search_terms = $('#searchTerms').val();
+    alert(search_terms);
 
     //create an URL for the REST API call
 	//The first bit of the url  - https://api.twitter.com - will automatically be included
@@ -48,13 +50,13 @@ function search() {
 			
         function(data) {
 		
-                //its worked - do something with the resultant data
+                alert("its worked - do something with the resultant data");
 		
     }).fail(
             
         function(err) {
   		
-			     //Oh nos! Search broken
+			     alert("Oh nos! Search broken");
 			
         });
     
