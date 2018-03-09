@@ -11,7 +11,7 @@ function onDeviceReady() {
     
     
 	//need to initialise OAuth here
-	OAuth.initialize('public-key-goes-here');
+	OAuth.initialize('IRag5OrvHxUVtipeao1dMUqCkq8');
     
     //authorise
 	OAuth.popup('twitter').done(function(result) {
